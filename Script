@@ -52,8 +52,11 @@ WelcomeTab:CreateParagraph({
 })
 
 
-local MainTab = Window:CreateTab("Main Script", nil) -- Title, Image
+local MainTab = Window:CreateTab("Buttons", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Player")
+
+local SlideTab = Window:CreateTab("Sliders", nil) -- Title, Image
+local MainSection = SlideTab:CreateSection("Players")
 
 Rayfield:Notify({
    Title = "Opened the script :D",
@@ -107,7 +110,7 @@ end)
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Slider = SlideTab:CreateSlider({
    Name = "WalkSpeed",
    Range = {0, 300},
    Increment = 1,
@@ -119,7 +122,7 @@ local Slider = MainTab:CreateSlider({
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Slider = SlideTab:CreateSlider({
    Name = "JumpPower",
    Range = {0, 300},
    Increment = 1,
@@ -156,9 +159,9 @@ RunService.RenderStepped:Connect(function(dt)
 end)
 
 -- Your Rayfield Slider
-local Slider = MainTab:CreateSlider({
+local Slider = SlideTab:CreateSlider({
 	Name = "SpinBot",
-	Range = {0, 2800},
+	Range = {0, 5000},
 	Increment = 10,
 	Suffix = "/s",
 	CurrentValue = 0,
@@ -214,7 +217,7 @@ Players.PlayerAdded:Connect(addESP)
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Slider = SlideTab:CreateSlider({
    Name = "Gravity",
    Range = {0, 500}, -- Gravity range (default is 196.2)
    Increment = 1,
@@ -229,12 +232,12 @@ local Slider = MainTab:CreateSlider({
 
 
 
-local FunTab = Window:CreateTab("🎉 Fun", nil) -- Use any icon ID you like
+local FunTab = Window:CreateTab("Random", nil) -- Use any icon ID you like
 
 FunTab:CreateSection("Cursed ahh") -- 🔥 Section title
 
 FunTab:CreateButton({
-    Name = "💥Self Destruction",
+    Name = "Self Destruction",
     Callback = function()
         local character = game.Players.LocalPlayer.Character
         if character then
@@ -249,7 +252,7 @@ FunTab:CreateButton({
 })
 
 FunTab:CreateButton({
-    Name = "🚀Launch Me",
+    Name = "Launch Me",
     Callback = function()
         local character = game.Players.LocalPlayer.Character
         local hrp = character and character:FindFirstChild("HumanoidRootPart")
